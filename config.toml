@@ -4,3 +4,10 @@
 
 debug = true
 
+[Sec]
+    KEYPAD = 7
+    KEYPAD_GREEN_LED = 8
+    KEYPAD_RED_LED = 9
+    KEYPAD_DEAD = 10
+    LED = 11
+    LED_DEAD = 12
