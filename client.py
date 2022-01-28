@@ -15,16 +15,18 @@ import globals
 import traceback
 
 import libs.Log as log
-import libs.Sec as Security
+import libs.Sec.sec as Security
 
 sec = None
 
 def setup():
+    global sec
     globals.config = toml.load("config.toml")
+    print(globals.config)
     log.info('Booting...')
     log.info('All systems UP')
     globals.run = True
-    sec = Security(globals.config.sec)
+    sec = Security.Sec(globals.config['Sec'])
 
 def loop():
     sec.update()
@@ -36,7 +38,7 @@ def shutdown():
 def main():
     try:
         setup()
-        while globals.run:
+        while True:
             loop()
     except:        
         log.error(traceback.format_exc())    
