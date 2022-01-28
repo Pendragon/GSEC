@@ -5,7 +5,7 @@ Description   :
 Author        : Jean-Paul GERST
 
 File Created  : Sunday, 23rd January 2022 5:48:01 pm
-Last Modified : Friday, 28th January 2022 9:36:49 pm
+Last Modified : Friday, 28th January 2022 9:39:26 pm
 
 Copyright (c) : 2022 Jean-Paul GERST
 '''
@@ -15,14 +15,16 @@ import globals
 import traceback
 
 import libs.Log as log
-import libs.Sec as sec
+import libs.Sec as Security
+
+sec = None
 
 def setup():
     globals.config = toml.load("config.toml")
     log.info('Booting...')
     log.info('All systems UP')
     globals.run = True
-    sec.setup(globals.config.sec)
+    sec = Security(globals.config.sec)
 
 def loop():
     sec.update()
