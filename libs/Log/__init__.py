@@ -30,7 +30,7 @@ coloredlogs.install(level,
                     field_styles=fieldstyle,
                     level_styles=levelstyles)
 
-file = logging.FileHandler("logs\latest.log")
+file = logging.FileHandler("logs\\latest.log")
 fileformat = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
 file.setLevel(level)
 file.setFormatter(fileformat)
