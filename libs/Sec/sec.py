@@ -15,6 +15,7 @@ import gpiozero
 class Sec:
     def __init__(self, config):
         self.config = config
+        self.abscent = True
         self.keypad_green = gpiozero.LED(self.config['KEYPAD_GREEN_LED'])
         self.keypad_red = gpiozero.LED(self.config['KEYPAD_RED_LED'])
         self.keypad = gpiozero.Button(self.config['KEYPAD'])
