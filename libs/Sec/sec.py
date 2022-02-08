@@ -27,7 +27,7 @@ class Sec:
             self.keypad_green.off()
         else:
             self.abscent = False
-            self.keypad_red.Off()
+            self.keypad_red.off()
             self.keypad_green.on()
 
     def _abscent(self):
