@@ -5,7 +5,7 @@
 debug = true
 
 [Sec]
-    KEYPAD = 7
-    KEYPAD_GREEN_LED = 8
-    KEYPAD_RED_LED = 9
-    KEYPAD_ALIVE = 10
+    KEYPAD = 6
+    KEYPAD_GREEN_LED = 13
+    KEYPAD_RED_LED = 19
+    KEYPAD_ALIVE = 26
