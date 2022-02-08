@@ -25,12 +25,12 @@ levelstyles = {'critical': {'bold': True, 'color': 'red'},
 
 coloredlogs.install(level,
                     logger=log,
-                    fmt='%(asctime)s [%(levelname)s] - [%(filename)s > %(funcName)s() > %(lineno)s] - %(message)s',
+                    fmt='%(asctime)s [%(levelname)s] - %(message)s',
                     datefmt='%H:%M:%S',
                     field_styles=fieldstyle,
                     level_styles=levelstyles)
 
-file = logging.FileHandler("logs\\latest.log")
+file = logging.FileHandler("logs//latest.log")
 fileformat = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
 file.setLevel(level)
 file.setFormatter(fileformat)

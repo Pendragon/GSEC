@@ -16,17 +16,26 @@ class Sec:
     def __init__(self, config):
         self.config = config
         self.abscent = True
-        self.keypad_green = gpiozero.LED(self.config['KEYPAD_GREEN_LED'])
-        self.keypad_red = gpiozero.LED(self.config['KEYPAD_RED_LED'])
+        self.alarme_declenchee = False
+        self.keypad_green = gpiozero.LED(self.config['KEYPAD_GREEN_LED'], active_high=False)
+        self.keypad_red = gpiozero.LED(self.config['KEYPAD_RED_LED'], active_high=False)
         self.keypad = gpiozero.Button(self.config['KEYPAD'])
         self.alive = gpiozero.Button(self.config['KEYPAD_ALIVE'])
-        self._abscent()
+        if self.keypad.is_pressed:
+            self.abscent = True
+            self.keypad_red.on()
+            self.keypad_green.off()
+        else:
+            self.abscent = False
+            self.keypad_red.Off()
+            self.keypad_green.on()
 
     def _abscent(self):
         # Passage du mode abscent au mode present
         # => L'alarme est inactivé
         if self.abscent == False and self.keypad.is_pressed:
             self.abscent = True
+            self.alarme_declenchee = False
             self.keypad_red.on()
             self.keypad_green.off()
         # Passage du mode present au mode abscent
@@ -35,6 +44,11 @@ class Sec:
             self.abscent = False
             self.keypad_red.off()
             self.keypad_green.on()
+
+        if self.abscent and self.alive == False and self.alarme_declenchee == False:
+            self.alarme_declenchee = True
+            self.red.blink(400, 400)
+
 
     def update(self):
         self._abscent()
