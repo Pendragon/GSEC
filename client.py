@@ -5,7 +5,7 @@ Description   :
 Author        : Jean-Paul GERST
 
 File Created  : Sunday, 23rd January 2022 5:48:01 pm
-Last Modified : Friday, 28th January 2022 9:39:26 pm
+Last Modified : Tuesday, 8th February 2022 8:23:56 am
 
 Copyright (c) : 2022 Jean-Paul GERST
 '''
@@ -22,7 +22,6 @@ sec = None
 def setup():
     global sec
     globals.config = toml.load("config.toml")
-    print(globals.config)
     log.info('Booting...')
     log.info('All systems UP')
     globals.run = True
