@@ -13,6 +13,7 @@ Copyright (c) : 2022 Jean-Paul GERST
 import toml
 import globals
 import traceback
+import time
 
 import libs.Log as log
 import libs.Sec.sec as Security
@@ -29,6 +30,7 @@ def setup():
 
 def loop():
     sec.update()
+    time.sleep(1 / 100)
 
 def shutdown():
     log.info('Shutting down')
